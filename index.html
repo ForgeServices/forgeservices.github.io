@@ -491,5 +491,90 @@ const loadSV=async()=>{if(!CFG.servicesUrl)return;try{const r=await fetch(CFG.se
 loadSV();
 rCat();rCart();
 </script>
+<style id="fx-css">
+/* ===== FORGE motion & polish layer ===== */
+#fx-splash{position:fixed;inset:0;z-index:200;display:grid;place-items:center;background:#0B0B0D;animation:fxsplash 1.25s ease forwards;pointer-events:none}
+#fx-splash svg{width:54px;height:64px;color:var(--gold);fill:currentColor;animation:fxlogo 1.1s cubic-bezier(.2,.8,.2,1) both;filter:drop-shadow(0 0 22px rgba(245,185,28,.55))}
+#fx-splash i{position:absolute;bottom:38%;width:120px;height:2px;border-radius:2px;background:linear-gradient(90deg,transparent,var(--gold),transparent);animation:fxbar 1s ease both}
+@keyframes fxsplash{0%,70%{opacity:1;visibility:visible}100%{opacity:0;visibility:hidden}}
+@keyframes fxlogo{0%{opacity:0;transform:scale(.6) rotate(-8deg)}60%{opacity:1;transform:scale(1.08)}100%{opacity:1;transform:none}}
+@keyframes fxbar{0%{transform:scaleX(0)}100%{transform:scaleX(1)}}
+#fx-prog{position:fixed;left:0;top:env(safe-area-inset-top,0px);height:3px;width:100%;z-index:62;transform-origin:0 50%;transform:scaleX(0);background:linear-gradient(90deg,#b8860b,var(--gold),#fff3c4);box-shadow:0 0 12px rgba(245,185,28,.7)}
+header{transition:background .3s,box-shadow .3s}
+header.fx-s{background:rgba(11,11,13,.82);box-shadow:0 10px 30px rgba(0,0,0,.55),0 1px 0 rgba(245,185,28,.28)}
+.hero>.hg{position:relative;z-index:1}
+#fx-cv{position:absolute;inset:0;width:100%;height:100%;pointer-events:none;z-index:0;opacity:.85}
+.hero::before{content:"";position:absolute;inset:-20%;pointer-events:none;background:radial-gradient(40% 40% at 20% 30%,rgba(245,185,28,.14),transparent 70%),radial-gradient(35% 35% at 85% 70%,rgba(255,120,40,.1),transparent 70%);animation:fxaur 14s ease-in-out infinite alternate}
+@keyframes fxaur{to{transform:translate(4%,-3%) scale(1.12) rotate(4deg)}}
+.hero h1 em{font-style:normal;background:linear-gradient(100deg,#c98a06 20%,#ffe9a0 45%,var(--gold) 55%,#c98a06 80%);background-size:250% 100%;-webkit-background-clip:text;background-clip:text;color:transparent;animation:fxshim 4.5s linear infinite}
+@keyframes fxshim{to{background-position:-250% 0}}
+.hero .lap,.hero .ph{animation:fi 1.2s .3s backwards,fxfloat 6s ease-in-out 1.5s infinite}.hero .ph{animation:fi 1.2s .3s backwards,fxfloat 5s ease-in-out 1s infinite}
+@keyframes fxfloat{50%{translate:0 -10px}}
+.hero .glow{animation:fxpulse 4s ease-in-out infinite}
+@keyframes fxpulse{50%{opacity:.55;scale:1.12}}
+.btn{position:relative;overflow:hidden;-webkit-tap-highlight-color:transparent}
+.btn:hover{translate:0 -2px;box-shadow:0 10px 26px rgba(245,185,28,.18)}.btn:active{scale:.97}
+.btn.g::after{content:"";position:absolute;inset:0;pointer-events:none;background:linear-gradient(110deg,transparent 35%,rgba(255,255,255,.55) 50%,transparent 65%);transform:translateX(-120%);animation:fxshine 3.8s ease-in-out 1.5s infinite}
+@keyframes fxshine{0%,55%{transform:translateX(-120%)}100%{transform:translateX(120%)}}
+.fx-rip{position:absolute;border-radius:50%;pointer-events:none;background:rgba(245,185,28,.45);transform:scale(0);animation:fxrip .6s ease-out forwards}
+@keyframes fxrip{to{transform:scale(1);opacity:0}}
+.fx-mq{overflow:hidden;border-bottom:1px solid var(--bd);background:#0e0e10;padding:11px 0;-webkit-mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.fx-mqt{display:flex;gap:34px;width:max-content;animation:fxmq 28s linear infinite}
+.fx-mq:hover .fx-mqt{animation-play-state:paused}
+.fx-mqt span{font-size:11px;font-weight:800;letter-spacing:.2em;text-transform:uppercase;color:var(--mu);white-space:nowrap}.fx-mqt span::before{content:"✦";color:var(--gold);margin-right:34px}
+@keyframes fxmq{to{transform:translateX(-50%)}}
+.js-fx .rv{opacity:0;translate:0 26px;transition:opacity .7s cubic-bezier(.2,.7,.2,1),translate .7s cubic-bezier(.2,.7,.2,1);transition-delay:var(--d,0s)}
+.js-fx .rv.in{opacity:1;translate:0 0}
+.sec h2{position:relative}
+.sec h2.rv::after{content:"";display:block;height:3px;width:0;margin-top:8px;border-radius:3px;background:linear-gradient(90deg,var(--gold),transparent);transition:width .9s .25s cubic-bezier(.2,.7,.2,1)}
+.sec h2.in::after{width:64px}
+.sc,.pc,.wc,.hw li,.wy>div,.m1{will-change:transform}
+.fx-t{transform:perspective(800px) rotateX(var(--rx,0deg)) rotateY(var(--ry,0deg));transition:transform .15s ease-out,border-color .2s,box-shadow .3s}
+.fx-t:hover{box-shadow:0 18px 40px rgba(0,0,0,.55),0 0 0 1px rgba(245,185,28,.35)}
+.wc{transition:transform .15s ease-out,box-shadow .3s}
+.wc>svg{transition:transform .5s cubic-bezier(.2,.8,.2,1)}.wc:hover>svg{transform:scale(1.14) rotate(-4deg)}
+.wc figcaption::after{content:" ↗";color:var(--gold);opacity:0;margin-left:2px;transition:opacity .25s,margin .25s}.wc:hover figcaption::after{opacity:1;margin-left:6px}
+.hw li{transition:translate .25s,border-color .25s}.hw li:hover,.wy>div:hover{translate:0 -4px;border-color:rgba(245,185,28,.5)}.wy>div{transition:translate .25s,border-color .25s}
+.hw li::before{transition:transform .4s}.hw li:hover::before{transform:rotate(360deg) scale(1.12)}
+@media(hover:hover){nav>a{background:linear-gradient(var(--gold),var(--gold)) no-repeat 50% 100%/0 2px;transition:background-size .3s,color .2s}nav>a:hover,nav>a.on{background-size:70% 2px}}
+#fx-glow{position:fixed;left:0;top:0;width:420px;height:420px;margin:-210px 0 0 -210px;border-radius:50%;pointer-events:none;z-index:1;background:radial-gradient(circle,rgba(245,185,28,.08),transparent 65%);opacity:0;transition:opacity .4s;will-change:transform}
+#fx-top{position:fixed;right:14px;bottom:calc(84px + env(safe-area-inset-bottom,0px));z-index:54;width:44px;height:44px;border-radius:50%;display:grid;place-items:center;background:var(--gold);color:#111;font-weight:800;font-size:18px;box-shadow:0 8px 24px rgba(245,185,28,.35);opacity:0;translate:0 16px;pointer-events:none;transition:.3s}
+#fx-top.on{opacity:1;translate:0 0;pointer-events:auto}#fx-top:hover{scale:1.08}
+#md:not([hidden]){animation:fxfade .25s ease}#md:not([hidden]) #mc{animation:fxpop .4s cubic-bezier(.2,.8,.2,1)}#ts:not([hidden]){animation:fxpop .4s cubic-bezier(.2,.8,.2,1)}
+@keyframes fxfade{from{opacity:0}}@keyframes fxpop{from{opacity:0;transform:translateY(18px) scale(.95)}}
+.bn a,.bn button{transition:color .2s,transform .2s}.bn a:active,.bn button:active{transform:scale(.9)}.bn .on{transform:translateY(-2px)}
+@media(prefers-reduced-motion:reduce){*,::before,::after{animation-duration:.01ms!important;animation-iteration-count:1!important;transition-duration:.01ms!important}.js-fx .rv{opacity:1;translate:0 0}#fx-cv,.fx-mqt{display:none}}
+</style>
+<script>
+(()=>{const d=document,de=d.documentElement,$=(s,r=d)=>r.querySelector(s),$$=(s,r=d)=>[...r.querySelectorAll(s)];
+const rm=matchMedia('(prefers-reduced-motion:reduce)').matches,fine=matchMedia('(hover:hover) and (pointer:fine)').matches;
+de.classList.add('js-fx');
+const sp=d.createElement('div');sp.id='fx-splash';sp.innerHTML='<svg viewBox="0 0 100 120"><use href="#f"/></svg><i></i>';d.body.prepend(sp);setTimeout(()=>sp.remove(),1500);
+const pr=d.createElement('div');pr.id='fx-prog';d.body.append(pr);
+const tp=d.createElement('button');tp.id='fx-top';tp.setAttribute('aria-label','Back to top');tp.textContent='↑';tp.onclick=()=>scrollTo({top:0,behavior:'smooth'});d.body.append(tp);
+const hd=$('header');let tk=0;
+addEventListener('scroll',()=>{if(tk)return;tk=requestAnimationFrame(()=>{tk=0;const y=scrollY,h=de.scrollHeight-innerHeight;pr.style.transform='scaleX('+(h>0?y/h:0)+')';hd&&hd.classList.toggle('fx-s',y>12);tp.classList.toggle('on',y>700)})},{passive:true});
+// marquee
+const hero=$('.hero');
+if(hero){let t=['Social Media Growth','Logo & Branding','Websites','Video & Thumbnails','AI Studio','Digital Tasks'];const m=d.createElement('div');m.className='fx-mq';m.setAttribute('aria-hidden','true');const row=t.map(x=>'<span>'+x+'</span>').join('');m.innerHTML='<div class="fx-mqt">'+row+row+'</div>';hero.after(m)}
+// reveal
+const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add('in');io.unobserve(e.target)}}),{threshold:.12,rootMargin:'0px 0px -6% 0px'});
+const SEL='.sec h2,.sec .eye,.sec>.w>p.mu,.sc,.pc,.wc,.hw li,.wy>div,.m1,.tq,.cb2>*,.fq details,.fq .it,footer .fg>*';
+const mark=r=>$$(SEL,r).forEach((el,i)=>{if(el.dataset.fx)return;el.dataset.fx=1;el.classList.add('rv');el.style.setProperty('--d',Math.min(i%6,5)*.07+'s');io.observe(el);
+ if(fine&&!rm&&el.matches('.sc,.pc,.wc')){el.classList.add('fx-t');el.addEventListener('pointermove',e=>{const r=el.getBoundingClientRect(),x=(e.clientX-r.left)/r.width-.5,y=(e.clientY-r.top)/r.height-.5;el.style.setProperty('--ry',(x*9).toFixed(2)+'deg');el.style.setProperty('--rx',(-y*9).toFixed(2)+'deg')});el.addEventListener('pointerleave',()=>{el.style.setProperty('--rx','0deg');el.style.setProperty('--ry','0deg')})}});
+mark(d);new MutationObserver(ms=>ms.forEach(m=>m.addedNodes.forEach(n=>n.nodeType==1&&mark(n)))).observe(d.body,{childList:true,subtree:true});
+// ripple
+d.addEventListener('pointerdown',e=>{const b=e.target.closest('.btn,.bn a,.bn button');if(!b)return;const r=b.getBoundingClientRect(),s=Math.max(r.width,r.height)*2,p=d.createElement('span');p.className='fx-rip';p.style.cssText=`width:${s}px;height:${s}px;left:${e.clientX-r.left-s/2}px;top:${e.clientY-r.top-s/2}px`;if(getComputedStyle(b).position=='static')b.style.position='relative';b.style.overflow='hidden';b.append(p);setTimeout(()=>p.remove(),650)});
+// cursor glow (desktop)
+if(fine&&!rm){const g=d.createElement('div');g.id='fx-glow';d.body.append(g);addEventListener('pointermove',e=>{g.style.opacity=1;g.style.transform=`translate(${e.clientX}px,${e.clientY}px)`},{passive:true});d.addEventListener('pointerleave',()=>g.style.opacity=0)}
+// hero particles
+if(hero&&!rm){const c=d.createElement('canvas');c.id='fx-cv';c.setAttribute('aria-hidden','true');hero.prepend(c);const x=c.getContext('2d');let W,H,P=[],run=true,mx=-999,my=-999;
+const rs=()=>{const k=Math.min(devicePixelRatio||1,2);W=hero.clientWidth;H=hero.clientHeight;c.width=W*k;c.height=H*k;x.setTransform(k,0,0,k,0,0);const n=Math.round(Math.min(70,W*H/14000));P=Array.from({length:n},()=>({x:Math.random()*W,y:Math.random()*H,r:Math.random()*1.8+.5,v:Math.random()*.35+.1,a:Math.random()*6.28}))};
+rs();addEventListener('resize',rs);hero.addEventListener('pointermove',e=>{const r=hero.getBoundingClientRect();mx=e.clientX-r.left;my=e.clientY-r.top});hero.addEventListener('pointerleave',()=>{mx=my=-999});
+new IntersectionObserver(e=>{run=e[0].isIntersecting;if(run)fr()}).observe(hero);
+const fr=()=>{if(!run)return;x.clearRect(0,0,W,H);for(const p of P){p.y-=p.v;p.a+=.03;if(p.y<-4){p.y=H+4;p.x=Math.random()*W}const dx=p.x-mx,dy=p.y-my,ds=Math.hypot(dx,dy);if(ds<110){p.x+=dx/ds*1.6;p.y+=dy/ds*1.6}x.beginPath();x.arc(p.x,p.y,p.r,0,6.28);x.fillStyle=`rgba(245,185,28,${.25+.5*Math.abs(Math.sin(p.a))})`;x.fill()}
+for(let i=0;i<P.length;i++)for(let j=i+1;j<P.length;j++){const a=P[i],b=P[j],ds=Math.hypot(a.x-b.x,a.y-b.y);if(ds<80){x.strokeStyle=`rgba(245,185,28,${.14*(1-ds/80)})`;x.lineWidth=.6;x.beginPath();x.moveTo(a.x,a.y);x.lineTo(b.x,b.y);x.stroke()}}requestAnimationFrame(fr)};fr()}
+})();
+</script>
 </body>
 </html>
